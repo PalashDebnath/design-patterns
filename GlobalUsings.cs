@@ -1,0 +1,5 @@
+global using DesignPatterns.SingleResponsibilityPrinciple;
+global using DesignPatterns.OpenClosePrinciple;
+global using DesignPatterns.LiskovSubstitutionPrinciple;
+global using DesignPatterns.InterfaceSegregationPrinciple;
+global using DesignPatterns.DependencyInversionPrinciple;
