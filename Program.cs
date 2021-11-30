@@ -40,3 +40,35 @@ advancePrinter.Print().Scan().Fax().Mail();
 EmployeeBusiness employeeBusiness = new EmployeeBusiness();
 Employee employee = employeeBusiness.GetEmployeeDetails(1);
 Console.WriteLine(employee.ToString());
+
+//Builder patterns
+ClassBuilder codeBuilder = new ClassBuilder("Person");
+var code = codeBuilder
+                .AddField("Name", "string")
+                .AddField("Age", "int")
+                .AddInnerClass(codeBuilder.root, "Address")
+                .AddField(codeBuilder.root.innerClass, "Street", "string")
+                .Build();
+Console.WriteLine(code);
+
+CarBuilder carBuilder = new CarBuilder();
+Car car = carBuilder.SetCar().OfType(CarType.SEDAN).HasWeelSize(16).Build();
+Console.WriteLine(car);
+
+DrinkBuilder drinkBuilder = new DrinkBuilder();
+var drink = drinkBuilder.Start("coco-cola").Type(DrinkType.COLD).Size(DrinkSize.MEDIUM).Prepare();
+Console.WriteLine(drink);
+
+PersonBuilder personBuilder = new PersonBuilder();
+Person person = personBuilder
+                  .Lives
+                    .At("Masidhati Road")
+                    .In("Barasat")
+                    .WithPostCode("700124")
+                  .Works
+                    .At("Tata Consultancy Services")
+                    .AsA("Engineer")
+                    .OfPackage(900000);
+Console.WriteLine(person);
+
+

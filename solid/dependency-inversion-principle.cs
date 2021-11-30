@@ -9,7 +9,7 @@
   signature shouldn't be derived from the end output. It should be more generic and the implementation of the method on class should
   follow the signature.
 
-  On the other hand EmployeeBusiness and EmployeeDataAccess talk to each other through the IEmployeeDataAccess interface. which follows
+  On the other hand EmployeeBusiness(high-level) and EmployeeDataAccess(low-level) talk to each other through the IEmployeeDataAccess interface. which follows
   the dependency inversion principle.
 */
 namespace DesignPatterns.DependencyInversionPrinciple;
