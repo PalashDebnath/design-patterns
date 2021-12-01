@@ -10,7 +10,7 @@ public enum DrinkSize { SMALL, MEDIUM, LARGE }
 
 public class Drink
 {
-  public string? Name { get; set; }
+  public string Name { get; set; } = string.Empty;
   public DrinkType Type { get; set; }
   public DrinkSize Size { get; set; }
 
