@@ -2,7 +2,7 @@
   Demostration of prototype design pattern using explicit interface approach
 */
 
-namespace DesignPatterns.prototypes;
+namespace DesignPatterns.Prototypes;
 
 enum Data { }
 

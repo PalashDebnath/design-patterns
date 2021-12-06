@@ -2,18 +2,18 @@
   Demonstration of singleton disign pattern. As per singleton a class can be instantiate only once.
 */
 
-namespace DesignPatterns.singletons;
+namespace DesignPatterns.Singletons;
 
 enum Dummy { }
 
-public interface IConfigurationProvider
+public interface ICommand
 {
-  Dictionary<string, string> Fetch();
+  Dictionary<string, string> Read();
 }
 
 // As configurations are static values, they will not change.
 // Hence to read them from a file and service as a singleton obejct is logical.
-public class Configuration : IConfigurationProvider
+public class Configuration : ICommand
 {
   private Dictionary<string, string> configurations;
   // stop instantiation by making the constructor private
@@ -27,7 +27,7 @@ public class Configuration : IConfigurationProvider
     configurations.Add("acc", "acceptance");
     configurations.Add("prod", "production");
   }
-  public Dictionary<string, string> Fetch()
+  public Dictionary<string, string> Read()
   {
     return configurations;
   }

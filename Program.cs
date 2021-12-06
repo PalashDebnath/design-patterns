@@ -109,13 +109,50 @@ Console.WriteLine(subrata);
 Console.WriteLine(palash); */
 
 //Singleton Patterns
-var origin = Configuration.Instance;
-var configurations = origin.Fetch();
+/* var origin = Configuration.Instance;
+var configurations = origin.Read();
 foreach (var config in configurations)
 {
   Console.WriteLine($"Key: {config.Key}, Value: {config.Value}");
 }
 var clone = Configuration.Instance;
-Console.WriteLine($"origin object hash code: {origin.GetHashCode()}, clone object hash code: {clone.GetHashCode()}");
+Console.WriteLine($"origin object hash code: {origin.GetHashCode()}, clone object hash code: {clone.GetHashCode()}"); */
 
+// Adapter Patterns
+/* Line line = new Line(new Point(1, 6), new Point(6, 10));
+var pointPrinterAdapter = new PointPrinterAdapter();
+Console.WriteLine(line);
+pointPrinterAdapter.Adapt(line);
+Console.WriteLine();
 
+List<Tuple<int, string, string, int>> employees = new List<Tuple<int, string, string, int>>();
+employees.Add(Tuple.Create(101, "John", "SE", 10000));
+employees.Add(Tuple.Create(102, "Smith", "SE", 20000));
+employees.Add(Tuple.Create(103, "Dev", "SSE", 30000));
+employees.Add(Tuple.Create(104, "Pam", "SE", 40000));
+EmployeeBillingAdapter employeeBillingAdapter = new EmployeeBillingAdapter();
+employeeBillingAdapter.Adapt(employees); */
+
+// Bridge Patterns
+/* Shape rectangle = new Rectangle(new VectorPainter());
+Shape tringle = new Tringle(new RasterPainter());
+rectangle.Draw();
+tringle.Draw(); */
+
+// Composite Patterns
+var products = new List<Product>();
+products.Add(new Product("Apple", Size.SMALL, Color.GREEN));
+products.Add(new Product("Tree", Size.EXTRALARGE, Color.GREEN));
+products.Add(new Product("Pumkin", Size.LARGE, Color.RED));
+products.Add(new Product("Cucumber", Size.MEDIUM, Color.GREEN));
+
+var filter = new ProductFilter();
+var compositeSpecification = new CompositeSpecification();
+compositeSpecification.Specifications.Add(new ColorSpecification(Color.GREEN));
+compositeSpecification.Specifications.Add(new SizeSpecification(Size.MEDIUM));
+var filteredProducts = filter.Filter(products, compositeSpecification);
+
+foreach (Product product in filteredProducts)
+{
+  Console.WriteLine(product.ToString());
+}

@@ -4,7 +4,7 @@
 
 using System.Text.Json;
 
-namespace DesignPatterns.prototypes;
+namespace DesignPatterns.Prototypes;
 
 enum Note { }
 

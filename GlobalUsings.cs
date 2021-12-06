@@ -1,2 +1,2 @@
 global using System.Text;
-global using DesignPatterns.singletons;
+global using DesignPatterns.Composites;

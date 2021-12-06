@@ -2,7 +2,7 @@
   Demostration of prototype design pattern using copy constructors approach
 */
 
-namespace DesignPatterns.prototypes;
+namespace DesignPatterns.Prototypes;
 
 enum Record { }
 
