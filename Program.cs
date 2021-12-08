@@ -34,7 +34,7 @@ Console.WriteLine(fruit.GetDetails()); */
 
 // Interface Segregation Principle
 /* AdvancePrinter advancePrinter = new AdvancePrinter(new Document());
-advancePrinter.Print().Scan().Fax().Mail(); */
+advancePrinter.Print().Lookup().Fax().Mail(); */
 
 // Dependency Inversion Principle
 /* EmployeeBusiness employeeBusiness = new EmployeeBusiness();
@@ -140,7 +140,7 @@ rectangle.Draw();
 tringle.Draw(); */
 
 // Composite Patterns
-var products = new List<Product>();
+/* var products = new List<Product>();
 products.Add(new Product("Apple", Size.SMALL, Color.GREEN));
 products.Add(new Product("Tree", Size.EXTRALARGE, Color.GREEN));
 products.Add(new Product("Pumkin", Size.LARGE, Color.RED));
@@ -155,4 +155,47 @@ var filteredProducts = filter.Filter(products, compositeSpecification);
 foreach (Product product in filteredProducts)
 {
   Console.WriteLine(product.ToString());
-}
+} */
+
+// Decorator Patterns
+/* Beverage expresso = new Expresso(2);
+IAdjunct<Beverage> adjunct = new Sugar();
+adjunct.AddWith(expresso);
+adjunct = new Caramel();
+adjunct.AddWith(expresso);
+Console.WriteLine(expresso); */
+
+// Facade Patterns
+/* Order order = new Order();
+order.PlaceOrder(); */
+
+// Flyweight Patterns
+/* ShapeCache shapeCache = new ShapeCache();
+var shape = shapeCache.Lookup(ShapeType.Circle);
+shape.SetColor("Red");
+shape.Draw();
+shape = shapeCache.Lookup(ShapeType.Circle);
+shape.SetColor("Green");
+shape.Draw();
+shape = shapeCache.Lookup(ShapeType.Circle);
+shape.SetColor("Orange");
+shape.Draw();
+shape = shapeCache.Lookup(ShapeType.Square);
+shape.SetColor("Red");
+shape.Draw();
+shape = shapeCache.Lookup(ShapeType.Square);
+shape.SetColor("Green");
+shape.Draw();
+shape = shapeCache.Lookup(ShapeType.Square);
+shape.SetColor("Orange");
+shape.Draw(); */
+
+// Proxy Patterns
+var palash = new Employee("palashdebnath", "test@1234", "Palash Debnath", Designation.Developer);
+var subrata = new Employee("subratasarkar", "test@1234", "Subrata Sarkar", Designation.Manager);
+var operationProxy = new OpeartionProxy(palash);
+operationProxy.Read();
+operationProxy.Write();
+operationProxy = new OpeartionProxy(subrata);
+operationProxy.Read();
+operationProxy.Write();

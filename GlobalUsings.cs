@@ -1,2 +1,3 @@
 global using System.Text;
-global using DesignPatterns.Composites;
+global using DesignPatterns.Flyweights;
+global using DesignPatterns.Proxies;
