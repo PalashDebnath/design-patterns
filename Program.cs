@@ -191,11 +191,42 @@ shape.SetColor("Orange");
 shape.Draw(); */
 
 // Proxy Patterns
-var palash = new Employee("palashdebnath", "test@1234", "Palash Debnath", Designation.Developer);
+/* var palash = new Employee("palashdebnath", "test@1234", "Palash Debnath", Designation.Developer);
 var subrata = new Employee("subratasarkar", "test@1234", "Subrata Sarkar", Designation.Manager);
 var operationProxy = new OpeartionProxy(palash);
 operationProxy.Read();
 operationProxy.Write();
 operationProxy = new OpeartionProxy(subrata);
 operationProxy.Read();
-operationProxy.Write();
+operationProxy.Write(); */
+
+// Chain Of Responsibility Patterns
+/* Dispatcher twoThousandRupeeNoteDispatcher = new TwoThousandRupeeNote();
+Dispatcher fiveHundredRupeeNoteDispatcher = new FiveHundredRupeeNote();
+Dispatcher twoHundredRupeeNoteDispatcher = new TwoHundredRupeeNote();
+Dispatcher oneHundredRupeeNoteDispatcher = new OneHundredRupeeNote();
+twoThousandRupeeNoteDispatcher.NextDispatcher(fiveHundredRupeeNoteDispatcher);
+fiveHundredRupeeNoteDispatcher.NextDispatcher(twoHundredRupeeNoteDispatcher);
+twoHundredRupeeNoteDispatcher.NextDispatcher(oneHundredRupeeNoteDispatcher);
+ATM atm = new ATM(twoThousandRupeeNoteDispatcher);
+atm.WithDraw(4600);
+atm.WithDraw(4800); */
+
+// Command Patterns
+var account = new Account();
+var commands = new List<AccountCommand>();
+commands.Add(new AccountCommand(account, Command.Deposit, 100));
+commands.Add(new AccountCommand(account, Command.Withdraw, 150));
+
+foreach (var command in commands)
+{
+  command.Call();
+}
+
+foreach (var command in Enumerable.Reverse(commands))
+{
+  command.Undo();
+}
+
+
+
