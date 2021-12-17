@@ -213,7 +213,7 @@ atm.WithDraw(4600);
 atm.WithDraw(4800); */
 
 // Command Patterns
-var account = new Account();
+/* var account = new Account();
 var commands = new List<AccountCommand>();
 commands.Add(new AccountCommand(account, Command.Deposit, 100));
 commands.Add(new AccountCommand(account, Command.Withdraw, 150));
@@ -226,7 +226,78 @@ foreach (var command in commands)
 foreach (var command in Enumerable.Reverse(commands))
 {
   command.Undo();
+} */
+
+// Iterator Patterns
+/* var tree = new Node<int>(1, new Node<int>(2, new Node<int>(4), new Node<int>(5)), new Node<int>(3, new Node<int>(6), new Node<int>(7)));
+var inOrderIterator = new InorderIterator<int>(tree);
+while (inOrderIterator.MoveNext())
+  Console.Write($"{inOrderIterator.Current?.Value} ");
+Console.WriteLine();
+foreach (var node in tree.InorderIterator<int>())
+{
+  Console.Write($"{node.Value} ");
 }
+Console.WriteLine();
+foreach (var node in tree.PreorderIterator<int>())
+{
+  Console.Write($"{node.Value} ");
+}
+Console.WriteLine();
+foreach (var node in tree.PostorderIterator<int>())
+{
+  Console.Write($"{node.Value} ");
+} */
+
+// Interpreter Patterns
+/* var interpreter = new Interpreter();
+var value = interpreter.Evaluate("1 + 2 * 5 / 10 % 2 * 20");
+Console.WriteLine(value);
+value = interpreter.Evaluate("(13+4)-(12+1)");
+Console.WriteLine(value); */
+
+// Memento Patterns
+/* var ba = new BankAccount(100);
+Console.WriteLine($"Balance: ${ba.Balance}");
+ba.Deposit(100);
+Console.WriteLine($"Balance: ${ba.Balance}");
+ba.WithDraw(25);
+Console.WriteLine($"Balance: ${ba.Balance}");
+ba.Undo();
+Console.WriteLine($"Balance: ${ba.Balance}");
+ba.Redo();
+Console.WriteLine($"Balance: ${ba.Balance}"); */
+
+// Null-Object Patterns
+/* var ba = new BankAccount(new CLog());
+ba.Deposit(100);
+ba.Deposit(200);
+ba.Withdraw(50);
+var ba2 = new BankAccount(SNLog.Instance);
+ba2.Deposit(100);
+ba2.Deposit(100);
+ba2.Withdraw(75);
+Console.WriteLine(ba2.Balance); */
+
+// Strategy Patterns
+/* var lp = new ListProcesser();
+lp.SetFormat(Format.Markdown);
+lp.AddItems(new List<string>() { "foo", "bar", "baz" });
+Console.WriteLine(lp);
+lp.Clear();
+lp.SetFormat(Format.Html);
+lp.AddItems(new List<string>() { "foo", "bar", "baz" });
+Console.WriteLine(lp);
+
+var payment = new Payment<CreditCardStrategy>();
+payment.Pay(700); */
+
+// Template Method Patterns
+/* House house = new ConcreteHouse();
+house.Build();
+house = new WoodenHouse();
+house.Build(); */
+
 
 
 
