@@ -30,9 +30,9 @@ class DebitCardStrategy : IPaymentStrategy
 
 class Payment<T> where T : IPaymentStrategy, new()
 {
-  private IPaymentStrategy _paymentStrategy = new T();
+  private IPaymentStrategy paymentStrategy = new T();
   public void Pay(decimal amount)
   {
-    _paymentStrategy.Pay(amount);
+    paymentStrategy.Pay(amount);
   }
 }

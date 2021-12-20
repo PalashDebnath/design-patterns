@@ -80,8 +80,8 @@ public interface ISender<T>
 
 public class NormalPrinter : IPrinter<NormalPrinter>
 {
-  private readonly Document _document;
-  public NormalPrinter(Document document) { _document = document; }
+  private readonly Document document;
+  public NormalPrinter(Document document) { this.document = document; }
   public NormalPrinter Print()
   {
     Console.WriteLine("Normal printer only can print");
@@ -91,8 +91,8 @@ public class NormalPrinter : IPrinter<NormalPrinter>
 
 public class PhotoPrinter : IPrinter<PhotoPrinter>, IScanner<PhotoPrinter>
 {
-  private readonly Document _document;
-  public PhotoPrinter(Document document) { _document = document; }
+  private readonly Document document;
+  public PhotoPrinter(Document document) { this.document = document; }
   public PhotoPrinter Print()
   {
     Console.WriteLine("Photo printer can print");
@@ -108,8 +108,8 @@ public class PhotoPrinter : IPrinter<PhotoPrinter>, IScanner<PhotoPrinter>
 
 public class AdvancePrinter : IPrinter<AdvancePrinter>, IScanner<AdvancePrinter>, ISender<AdvancePrinter>
 {
-  private readonly Document _document;
-  public AdvancePrinter(Document document) { _document = document; }
+  private readonly Document document;
+  public AdvancePrinter(Document document) { this.document = document; }
   public AdvancePrinter Fax()
   {
     Console.WriteLine("Advance printer can fax");

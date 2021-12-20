@@ -12,12 +12,12 @@ enum Factory { }
 
 public class Point
 {
-  private double _xValue, _yValue;
-  private Point(double x, double y) { _xValue = x; _yValue = y; }
+  private double xValue, yValue;
+  private Point(double x, double y) { xValue = x; yValue = y; }
 
   public override string ToString()
   {
-    return $"X: {_xValue}, Y: {_yValue}";
+    return $"X: {xValue}, Y: {yValue}";
   }
   public static class Factory
   {

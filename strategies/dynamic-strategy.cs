@@ -55,17 +55,17 @@ class HtmlStrategy : IListStrategy
 
 class ListProcesser
 {
-  private StringBuilder _sringBuilder = new StringBuilder();
-  private IListStrategy? _listStrategy;
+  private StringBuilder sringBuilder = new StringBuilder();
+  private IListStrategy? listStrategy;
   public void SetFormat(Format format)
   {
     switch (format)
     {
       case Format.Markdown:
-        _listStrategy = new MarkdownStrategy();
+        listStrategy = new MarkdownStrategy();
         break;
       case Format.Html:
-        _listStrategy = new HtmlStrategy();
+        listStrategy = new HtmlStrategy();
         break;
       default:
         throw new ArgumentNullException();
@@ -73,20 +73,20 @@ class ListProcesser
   }
   public void AddItems(List<string> items)
   {
-    _listStrategy?.Start(_sringBuilder);
+    listStrategy?.Start(sringBuilder);
     foreach (var item in items)
     {
-      _listStrategy?.AddItem(_sringBuilder, item);
+      listStrategy?.AddItem(sringBuilder, item);
     }
-    _listStrategy?.End(_sringBuilder);
+    listStrategy?.End(sringBuilder);
   }
   public void Clear()
   {
-    _sringBuilder.Clear();
+    sringBuilder.Clear();
   }
 
   public override string ToString()
   {
-    return _sringBuilder.ToString();
+    return sringBuilder.ToString();
   }
 }

@@ -44,8 +44,8 @@ class Operation : IOperation
 
 class OpeartionProxy : IOperation
 {
-  private Lazy<Operation> _operation = new Lazy<Operation>();
-  public Operation Operation => _operation.Value;
+  private Lazy<Operation> operation = new Lazy<Operation>();
+  public Operation Operation => operation.Value;
   public Employee Employee { get; private set; }
   public OpeartionProxy(Employee employee)
   {

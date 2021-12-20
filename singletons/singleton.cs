@@ -33,9 +33,9 @@ public class Configuration : ICommand
   }
 
   // The use of Lazy will help to hold the creation of configuration object until it has been request for.
-  // When the Instance property will be call explicitly, it will call the _instance.Value property implicitly,
+  // When the Instance property will be call explicitly, it will call the instance.Value property implicitly,
   // which internally gonna call the func delegate of lazy constructor and Configuration object will be instantiated
   // In addition it is also thread safe.
-  private static Lazy<Configuration> _instance = new Lazy<Configuration>(() => new Configuration());
-  public static Configuration Instance => _instance.Value;
+  private static Lazy<Configuration> instance = new Lazy<Configuration>(() => new Configuration());
+  public static Configuration Instance => instance.Value;
 }

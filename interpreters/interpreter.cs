@@ -1,7 +1,7 @@
 /*
   Demonstration of interpreter pattern.
 
-  Here we will create an interpreter which will take a string of arithmetic _expression, interprete it into logical means
+  Here we will create an interpreter which will take a string of arithmetic expression, interprete it into logical means
   and evaluate it.
 */
 

@@ -88,12 +88,12 @@ public class Journal
 
 public class Logger
 {
-  private readonly string _filePath;
-  public Logger(string? filePath = null) { _filePath = filePath ?? @"c:\temp\defaultlogger.txt"; }
+  private readonly string filePath;
+  public Logger(string? filePath = null) { this.filePath = filePath ?? @"c:\temp\defaultlogger.txt"; }
   public void Log(string message, LOGTYPE type, DateTime? dateTime = null)
   {
     File.WriteAllTextAsync(
-      _filePath,
+      filePath,
       $"[{type.ToString()}##{dateTime ?? DateTime.Now}] {message}"
     );
   }
@@ -103,6 +103,6 @@ public static class Disk
 {
   public static void Save(string content, string? filePath = null)
   {
-    File.WriteAllTextAsync(filePath ?? @"c:\temp\default_journal.txt", content);
+    File.WriteAllTextAsync(filePath ?? @"c:\temp\defaultjournal.txt", content);
   }
 }

@@ -45,8 +45,8 @@ class NLog : ILog
 class SNLog : ILog
 {
   private SNLog() { }
-  private static Lazy<SNLog> _instance = new Lazy<SNLog>(() => new SNLog());
-  public static ILog Instance = _instance.Value;
+  private static Lazy<SNLog> instance = new Lazy<SNLog>(() => new SNLog());
+  public static ILog Instance = instance.Value;
   public void Error(string message) { }
   public void Info(string message) { }
   public void Warn(string message) { }
@@ -57,16 +57,16 @@ class SNLog : ILog
 class BankAccount
 {
   public decimal Balance { get; private set; }
-  private ILog _log;
-  public BankAccount(ILog log) { _log = log; }
+  private ILog log;
+  public BankAccount(ILog log) { this.log = log; }
   public void Deposit(decimal value)
   {
     Balance += value;
-    _log.Info($"Deposited ${value} into your account.");
+    log.Info($"Deposited ${value} into your account.");
   }
   public void Withdraw(decimal value)
   {
     Balance += value;
-    _log.Info($"Withdrawal ${value} from your account.");
+    log.Info($"Withdrawal ${value} from your account.");
   }
 }

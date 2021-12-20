@@ -20,35 +20,35 @@ public class Memento
 
 public class BankAccount
 {
-  private List<Memento> _mementoes;
-  private int _index;
+  private List<Memento> mementoes;
+  private int index;
   public decimal Balance { get; private set; }
   public BankAccount(decimal initBalance)
   {
     Balance = initBalance;
-    _mementoes = new List<Memento>();
-    _mementoes.Add(new Memento(initBalance));
+    mementoes = new List<Memento>();
+    mementoes.Add(new Memento(initBalance));
   }
   public void Deposit(decimal value)
   {
     Balance += value;
-    _index += 1;
-    _mementoes.Add(new Memento(Balance));
+    index += 1;
+    mementoes.Add(new Memento(Balance));
   }
   public void WithDraw(decimal value)
   {
     Balance -= value;
-    _index += 1;
-    _mementoes.Add(new Memento(Balance));
+    index += 1;
+    mementoes.Add(new Memento(Balance));
   }
   public void Undo()
   {
-    if (_index >= 0)
-      Balance = _mementoes[--_index].Balance;
+    if (index >= 0)
+      Balance = mementoes[--index].Balance;
   }
   public void Redo()
   {
-    if (_index < _mementoes.Count)
-      Balance = _mementoes[++_index].Balance;
+    if (index < mementoes.Count)
+      Balance = mementoes[++index].Balance;
   }
 }

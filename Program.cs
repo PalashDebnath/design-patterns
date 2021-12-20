@@ -298,6 +298,76 @@ house.Build();
 house = new WoodenHouse();
 house.Build(); */
 
+// Observer Patterns
+/* var iphone = new Product("IPhone 13 Pro Max");
+var productObservable = new ProductObservable(iphone);
+var palash = new ProductObserver("Palash");
+var hiya = new ProductObserver("Hiya");
+productObservable.Register(palash);
+productObservable.Register(hiya);
+iphone.Quantity += 10;
+iphone.Quantity -= 10;
+productObservable.Unregister(hiya);
+iphone.Quantity += 20;
 
+var game = new Game();
+var c1 = new Creature(game);
+Console.WriteLine(c1.Attack);
+var c2 = new Creature(game);
+Console.WriteLine(c1.Attack);
+Console.WriteLine(c2.Attack);
+using (var c3 = new Creature(game))
+{
+  Console.WriteLine(c1.Attack);
+  Console.WriteLine(c2.Attack);
+  Console.WriteLine(c3.Attack);
+}
+Console.WriteLine(c1.Attack);
+Console.WriteLine(c2.Attack); */
+
+// State Patterns
+/* var account = new Account("Palash");
+account.Deposit(1000);
+account.Deposit(1200);
+account.Withdraw(200);
+account.PayInterest(); */
+
+
+// Mediator Patterns
+/* var mediator = new Mediator();
+var palash = new Participant(mediator, "Palash");
+var subrata = new Participant(mediator, "Subrata");
+var tanay = new Participant(mediator, "Tanay");
+palash.Write("Hello all!");
+subrata.Write("Hi everyone!");
+tanay.Write("Morning everyone!");
+
+var communicator = new Communicator();
+var hiya = new Person("Hiya");
+var puja = new Person("Puja");
+
+communicator.Register(hiya);
+communicator.Register(puja);
+
+hiya.Wrote("Hi puja, welcome to the group.");
+puja.WroteTo(hiya, "Many thanks :)"); */
+
+// Visitor Patterns
+/* var rohit = new ClassicDoctor("Rohit");
+var sreetoma = new ClassicStudent("Sreetoma");
+var tanay = new ClassicTeacher("Tanay");
+
+sreetoma.Accept(rohit);
+tanay.Accept(rohit);
+
+var subrata = new Doctor("Subrata");
+var palash = new SalePerson("Palash");
+var sayan = new Student("Sayan");
+var rajib = new Teacher("Rajib");
+
+sayan.Accept(subrata);
+rajib.Accept(subrata);
+sayan.Accept(palash);
+rajib.Accept(palash); */
 
 

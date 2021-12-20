@@ -36,10 +36,10 @@ public class RasterPainter : IPainter
 public abstract class Shape
 {
   protected virtual string Name { get; set; } = "Shape";
-  protected IPainter _painter; //By creating this IPainter property, now there is a bridge between Shape and Painters
+  protected IPainter painter; //By creating this IPainter property, now there is a bridge between Shape and Painters
   public Shape(IPainter painter)
   {
-    _painter = painter;
+    this.painter = painter;
   }
   public abstract void Draw();
 }
@@ -50,7 +50,7 @@ public class Rectangle : Shape
   public Rectangle(IPainter painter) : base(painter) { }
   public override void Draw()
   {
-    _painter.Render(Name);
+    painter.Render(Name);
   }
 }
 
@@ -60,6 +60,6 @@ public class Tringle : Shape
   public Tringle(IPainter painter) : base(painter) { }
   public override void Draw()
   {
-    _painter.Render(Name);
+    painter.Render(Name);
   }
 }

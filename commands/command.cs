@@ -40,25 +40,25 @@ class Account
 
 class AccountCommand : ICommand
 {
-  private Account _account;
-  private Command _command;
-  private int _amount;
-  private bool _succeed;
+  private Account account;
+  private Command command;
+  private int amount;
+  private bool succeed;
   public AccountCommand(Account account, Command command, int amount)
   {
-    _account = account;
-    _command = command;
-    _amount = amount;
+    this.account = account;
+    this.command = command;
+    this.amount = amount;
   }
   public void Call()
   {
-    switch (_command)
+    switch (command)
     {
       case Command.Deposit:
-        _succeed = _account.Deposit(_amount);
+        succeed = account.Deposit(amount);
         break;
       case Command.Withdraw:
-        _succeed = _account.WithDraw(_amount);
+        succeed = account.WithDraw(amount);
         break;
       default:
         throw new ArgumentOutOfRangeException();
@@ -67,14 +67,14 @@ class AccountCommand : ICommand
 
   public void Undo()
   {
-    if (!this._succeed) return;
-    switch (_command)
+    if (!this.succeed) return;
+    switch (command)
     {
       case Command.Deposit:
-        _succeed = _account.WithDraw(_amount);
+        succeed = account.WithDraw(amount);
         break;
       case Command.Withdraw:
-        _succeed = _account.Deposit(_amount);
+        succeed = account.Deposit(amount);
         break;
       default:
         throw new ArgumentOutOfRangeException();

@@ -23,31 +23,31 @@ public class Drink
 //Access modifier sealed with help to bind with open-close principle
 public sealed class DrinkBuilder
 {
-  private readonly List<Action<Drink>> _actions;
+  private readonly List<Action<Drink>> actions;
 
   public DrinkBuilder()
   {
-    _actions = new List<Action<Drink>>();
+    actions = new List<Action<Drink>>();
   }
   public DrinkBuilder Start(string name)
   {
-    _actions.Add(d => d.Name = name);
+    actions.Add(d => d.Name = name);
     return this;
   }
   public DrinkBuilder Type(DrinkType type)
   {
-    _actions.Add(d => d.Type = type);
+    actions.Add(d => d.Type = type);
     return this;
   }
   public DrinkBuilder Size(DrinkSize size)
   {
-    _actions.Add(d => d.Size = size);
+    actions.Add(d => d.Size = size);
     return this;
   }
   public Drink Prepare()
   {
     Drink drink = new Drink();
-    _actions.ForEach(action => action(drink));
+    actions.ForEach(action => action(drink));
     return drink;
   }
 }

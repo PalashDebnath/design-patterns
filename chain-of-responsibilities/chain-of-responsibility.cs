@@ -65,15 +65,15 @@ public class OneHundredRupeeNote : Dispatcher
 
 public class ATM
 {
-  private int _amount;
-  private Dispatcher _dispatcher;
+  private int amount;
+  private Dispatcher dispatcher;
   public ATM(Dispatcher dispatcher)
   {
-    _dispatcher = dispatcher;
+    this.dispatcher = dispatcher;
   }
   public void WithDraw(int amount)
   {
-    _amount = amount;
-    _dispatcher.Dispatch(amount);
+    this.amount = amount;
+    dispatcher.Dispatch(amount);
   }
 }

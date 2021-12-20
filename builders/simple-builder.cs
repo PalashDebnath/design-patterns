@@ -27,7 +27,7 @@ public class Class
   public string name;
   public List<Property> properties;
   public Class? innerClass;
-  private const int INDENT_SIZE = 2;
+  private const int INDENTSIZE = 2;
   public Class(string name) { this.name = name; this.properties = new List<Property>(); }
 
   public override string ToString()
@@ -37,14 +37,14 @@ public class Class
   private string Content(int indent)
   {
     StringBuilder sb = new StringBuilder();
-    sb.AppendLine($"{new string(' ', INDENT_SIZE * indent)}public class {name}");
-    sb.AppendLine($"{new string(' ', INDENT_SIZE * indent)}{{");
+    sb.AppendLine($"{new string(' ', INDENTSIZE * indent)}public class {name}");
+    sb.AppendLine($"{new string(' ', INDENTSIZE * indent)}{{");
     foreach (Property property in properties)
     {
-      sb.AppendLine($"{new string(' ', INDENT_SIZE * (indent + 1))}{property.ToString()}");
+      sb.AppendLine($"{new string(' ', INDENTSIZE * (indent + 1))}{property.ToString()}");
     }
     if (innerClass != null) sb.Append(innerClass.Content(indent + 1));
-    sb.AppendLine($"{new string(' ', INDENT_SIZE * indent)}}}");
+    sb.AppendLine($"{new string(' ', INDENTSIZE * indent)}}}");
     return sb.ToString();
   }
 }

@@ -17,17 +17,17 @@ interface IIterator
 
 class InorderIterator<T> : IIterator
 {
-  private readonly Node<T> _root;
+  private readonly Node<T> root;
   public Node<T>? Current { get; set; }
   public InorderIterator(Node<T> root)
   {
-    _root = root;
+    this.root = root;
   }
   public bool MoveNext()
   {
     if (Current == null)
     {
-      Current = _root;
+      Current = root;
       while (Current.Left != null)
         Current = Current.Left;
       return true;
